@@ -550,13 +550,14 @@ class MysqliDb
      * @param string $query      User-provided query to execute.
      * @return string Contains the returned rows from the query.
      */
-    public function rawAddPrefix($query){
-        $query = str_replace(PHP_EOL, null, $query);
-        $query = preg_replace('/\s+/', ' ', $query);
-        preg_match_all("/(from|into|update|join) [\\'\\´]?([a-zA-Z0-9_-]+)[\\'\\´]?/i", $query, $matches);
-        list($from_table, $from, $table) = $matches;
+    public function rawAddPrefix($query) {
+        return $query;
+        // $query = str_replace(PHP_EOL, null, $query);
+        // $query = preg_replace('/\s+/', ' ', $query);
+        // preg_match_all("/(from|into|update|join) [\\'\\´]?([a-zA-Z0-9_-]+)[\\'\\´]?/i", $query, $matches);
+        // list($from_table, $from, $table) = $matches;
 
-        return str_replace($table[0], self::$prefix.$table[0], $query);
+        // return str_replace($table[0], self::$prefix.$table[0], $query);
     }
 
     /**
